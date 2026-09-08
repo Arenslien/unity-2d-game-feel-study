@@ -6,7 +6,7 @@ public class Torch : Item
     private Light2D _light2D;
 
     [SerializeField] private float _baseIntensity = 1f;
-	[SerializeField] private float _flickerSpeed = 0.2f;
+	[SerializeField] private float _flickerSpeed = 1f;
 	[SerializeField] private float _flickerAmount = 0.5f;
 
     private void Start()
