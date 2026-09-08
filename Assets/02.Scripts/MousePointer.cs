@@ -21,6 +21,7 @@ public class MousePointer : MonoBehaviour
         
         // 3. 월드 좌표로의 변환
         Vector3 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+        Debug.Log($"월드 좌표: {mouseWorldPosition}");
         
         // 4. 실제 게임 오브젝트들이 있는 위치의 Z로 고정
         mouseWorldPosition.z = 0f;
