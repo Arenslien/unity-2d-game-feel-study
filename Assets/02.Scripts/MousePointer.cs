@@ -12,6 +12,11 @@ public class MousePointer : MonoBehaviour
 
     private void Update()
     {
+        transform.position = GetMouseWorldPosition();
+    }
+
+    public Vector3 GetMouseWorldPosition()
+    {
         // 1. 유리창에 짚은 손가락 위치
         Vector3 mouseScreenPosition = Input.mousePosition;
         Debug.Log(mouseScreenPosition);
@@ -25,7 +30,7 @@ public class MousePointer : MonoBehaviour
         
         // 4. 실제 게임 오브젝트들이 있는 위치의 Z로 고정
         mouseWorldPosition.z = 0f;
-        
-        transform.position = mouseWorldPosition;
+
+        return mouseWorldPosition;
     }
 }

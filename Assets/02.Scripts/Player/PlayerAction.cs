@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class PlayerAction : MonoBehaviour
+{
+    private Inventory _inventory;
+    private MousePointer _mousePointer;
+
+    private void Awake()
+    {
+        _inventory = GetComponent<Inventory>();
+        _mousePointer = GameObject.FindWithTag("MousePointer").GetComponent<MousePointer>();
+    }
+    
+    private void Update()
+    {
+        // 1. 아이템 들고 있는지 체크 후 아이템 던지기
+        bool isSelected = _inventory.IsSelected;
+        if (Input.GetMouseButtonDown(1) && isSelected) ThrowItem();
+    }
+
+    private void ThrowItem()
+    {
+        // 1. 현재 들고 있는 횃불 비활성화
+        _inventory.EquipItem();
+        
+        // 2. 횃불 초기 위치 & 마우스 포인트 위치 계산
+        Vector3 torchPosition = _inventory.Torch.transform.position;
+        Vector3 mouseWorldPosition = _mousePointer.GetMouseWorldPosition();
+        
+        // 3. 방향 구하기
+        Vector3 direction = (mouseWorldPosition - torchPosition).normalized;
+        
+        // 4. 횃불 생성 후 던지기
+        GameObject torch = Instantiate(_inventory.Torch);
+
+
+    }
+}

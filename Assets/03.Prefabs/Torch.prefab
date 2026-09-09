@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068241587ca08d34d9efa126adbd10c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torch
+  _baseIntensity: 1
+  _flickerSpeed: 0.2
+  _flickerAmount: 0.5
 --- !u!114 &5475587304107319145
 MonoBehaviour:
   m_ObjectHideFlags: 0

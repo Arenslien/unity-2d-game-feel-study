@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     // Player의 움직임에 대한 필드
     [SerializeField] private float _speed = 5f;
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        // Todo: 땅 위치와 플레이어가 붙어 있는지 여부 확인하는 로직 추가
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
